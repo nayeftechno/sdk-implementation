@@ -16,6 +16,11 @@ function Navbar() {
               About
             </Link>
           </li>
+          <li className="nav-item">
+            <Link className="nav-link" href={"/employees"}>
+              Employees
+            </Link>
+          </li>
         </ul>
       </div>
     </nav>
