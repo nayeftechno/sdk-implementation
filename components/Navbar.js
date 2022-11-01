@@ -12,8 +12,8 @@ function Navbar() {
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" href={"/"}>
-              Home
+            <Link className="nav-link" href={"/about"}>
+              About
             </Link>
           </li>
         </ul>
