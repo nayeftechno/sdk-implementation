@@ -1,6 +1,15 @@
+import { useEffect } from "react";
 import RenderHead from "../../components/RenderHead";
+import { useEmployeeStore } from "../../contexts/EmployeeContext";
 
 export default function EmployeesPage() {
+  const { fetch } = useEmployeeStore();
+
+  useEffect(() => {
+    fetch();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <>
       <RenderHead pageTitle="Employees" />
