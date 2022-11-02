@@ -1,4 +1,4 @@
-import { observable, computed, makeAutoObservable, action } from "mobx";
+import { observable, computed, makeAutoObservable } from "mobx";
 import { ToDoListClient } from "../clients/to-do-list.client";
 
 class ToDoStore {
@@ -14,6 +14,7 @@ class ToDoStore {
     });
     this.fetch = this.fetch.bind(this);
     this.addTask = this.addTask.bind(this);
+    this.toggleStatus = this.toggleStatus.bind(this);
   }
 
   get getTasks() {
@@ -33,7 +34,13 @@ class ToDoStore {
 
   addTask = function* (payload) {
     const response = yield ToDoListClient.addNewTask(payload);
-    this.tasks.push(response);
+    this.tasks = [...this.tasks, response];
+  };
+
+  toggleStatus = function* (payload) {
+    const response = yield ToDoListClient.toggleStatus(payload);
+    const index = this.tasks.findIndex((task) => task.id === payload.id);
+    this.tasks[index] = response;
   };
 }
 

@@ -8,4 +8,9 @@ export const ToDoListClient = {
   addNewTask(payload) {
     return $http.post(ENDPOINTS.TASKS, payload).then(({ data }) => data);
   },
+  toggleStatus(payload) {
+    return $http
+      .put(`${ENDPOINTS.TASKS}/${payload?.id}`, payload)
+      .then(({ data }) => data);
+  },
 };

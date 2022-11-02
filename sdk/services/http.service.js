@@ -34,6 +34,23 @@ class HttpService {
       console.error(error);
     }
   }
+
+  put(url, payload) {
+    try {
+      return new Promise((resolve, reject) => {
+        http
+          .put(url, payload)
+          .then((data) => {
+            resolve(data);
+          })
+          .catch((error) => {
+            reject(error);
+          });
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  }
 }
 
 export const $http = new HttpService();
