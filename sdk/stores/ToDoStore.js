@@ -1,4 +1,5 @@
 import { observable, action, computed, makeAutoObservable } from "mobx";
+import { ToDoListClient } from "../clients/to-do-list.client";
 
 class ToDoStore {
   tasks = [];
@@ -31,10 +32,9 @@ class ToDoStore {
 
   fetch = async () => {
     this.isLoading = true;
-    const response = await fetch("http://localhost:4000/tasks");
-    const tasks = await response.json();
+    const response = await ToDoListClient.getAllTasks();
     this.isLoading = false;
-    this.tasks = tasks;
+    this.tasks = response;
   };
 }
 
