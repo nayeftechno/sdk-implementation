@@ -1,10 +1,11 @@
 import { useEffect } from "react";
 import RenderHead from "../../components/RenderHead";
 import List from "../../components/employee/List";
-import { useToDoStore } from "../../contexts/DataContext";
+import { useMainStore } from "../../contexts/MainContext";
 
 export default function EmployeesPage() {
-  const { fetch } = useToDoStore();
+  const { toDoStore } = useMainStore();
+  const { fetch } = toDoStore;
 
   useEffect(() => {
     fetch();

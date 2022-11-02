@@ -1,8 +1,9 @@
 import { observer } from "mobx-react-lite";
-import { useToDoStore } from "../../contexts/DataContext";
+import { useMainStore } from "../../contexts/MainContext";
 
 function List() {
-  const { getIsLoading, getTasks } = useToDoStore();
+  const { toDoStore } = useMainStore();
+  const { getIsLoading, getTasks } = toDoStore;
   return (
     <ul className="list-group">
       {getIsLoading && getTasks.length === 0 ? (

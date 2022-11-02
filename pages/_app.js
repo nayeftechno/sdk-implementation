@@ -3,18 +3,19 @@ import "../styles/globals.css";
 import Layout from "../components/Layout";
 import Navbar from "../components/Navbar";
 import ToDoStore from "../sdk/stores/ToDoStore";
-import { DataContextProvider } from "../contexts/DataContext";
+import MainStore from "../sdk/stores";
+import { MainContextProvider } from "../contexts/MainContext";
 
-const store = new ToDoStore();
+const store = new MainStore();
 
 function MyApp({ Component, pageProps }) {
   return (
-    <DataContextProvider store={store}>
+    <MainContextProvider store={store}>
       <Navbar />
       <Layout>
         <Component {...pageProps} />
       </Layout>
-    </DataContextProvider>
+    </MainContextProvider>
   );
 }
 
