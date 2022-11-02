@@ -2,7 +2,6 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../styles/globals.css";
 import Layout from "../components/Layout";
 import Navbar from "../components/Navbar";
-import ToDoStore from "../sdk/stores/ToDoStore";
 import MainStore from "../sdk/stores";
 import { MainContextProvider } from "../contexts/MainContext";
 

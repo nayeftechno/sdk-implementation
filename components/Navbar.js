@@ -12,11 +12,6 @@ function Navbar() {
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" href={"/about"}>
-              About
-            </Link>
-          </li>
-          <li className="nav-item">
             <Link className="nav-link" href={"/to-do-list"}>
               To-Do-List
             </Link>
