@@ -13,4 +13,7 @@ export const ToDoListClient = {
       .put(`${ENDPOINTS.TASKS}/${payload?.id}`, payload)
       .then(({ data }) => data);
   },
+  deleteTask(id) {
+    return $http.delete(`${ENDPOINTS.TASKS}/${id}`).then(({ data }) => data);
+  },
 };

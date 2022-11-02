@@ -3,13 +3,13 @@ import { useMainStore } from "../../contexts/MainContext";
 
 function List() {
   const { toDoStore } = useMainStore();
-  const { getIsLoading, getTasks, toggleStatus } = toDoStore;
+  const { getIsLoading, getTasks, toggleStatus, removeTask } = toDoStore;
 
-  const handleChange = () => {
+  const handleChange = (id, title, isCompleted) => {
     toggleStatus({
       id,
       title,
-      isCompleted: !isCompleted,
+      isCompleted,
     });
   };
 
@@ -19,24 +19,40 @@ function List() {
         <li className="list-group-item text-center">Loading...</li>
       ) : (
         <>
-          {getTasks.map(({ id, title, isCompleted }) => {
-            return (
-              <li key={id} className="list-group-item">
-                <div className="display-flex">
-                  <div>
-                    {id} - {title}
+          {getTasks.length > 0 ? (
+            getTasks.map(({ id, title, isCompleted }) => {
+              return (
+                <li key={id} className="list-group-item">
+                  <div className="display-flex">
+                    <div>
+                      {id} - {title}
+                    </div>
+                    <div className=" display-flex float-right ten-px-gap">
+                      <input
+                        className="cursor-pointer"
+                        type={"checkbox"}
+                        onChange={() => {
+                          handleChange(id, title, !isCompleted);
+                        }}
+                        checked={isCompleted}
+                      />
+                      <div
+                        className="cursor-pointer twenty-font-size"
+                        onClick={() => {
+                          removeTask(id);
+                        }}
+                        title="delete"
+                      >
+                        X
+                      </div>
+                    </div>
                   </div>
-                  <div className="float-right">
-                    <input
-                      type={"checkbox"}
-                      onChange={handleChange}
-                      checked={isCompleted}
-                    />
-                  </div>
-                </div>
-              </li>
-            );
-          })}
+                </li>
+              );
+            })
+          ) : (
+            <li className="list-group-item text-center">No Tasks Found</li>
+          )}
         </>
       )}
     </ul>

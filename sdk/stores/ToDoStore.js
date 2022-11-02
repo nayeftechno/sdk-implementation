@@ -14,6 +14,7 @@ class ToDoStore {
     });
     this.fetch = this.fetch.bind(this);
     this.addTask = this.addTask.bind(this);
+    this.removeTask = this.removeTask.bind(this);
     this.toggleStatus = this.toggleStatus.bind(this);
   }
 
@@ -41,6 +42,12 @@ class ToDoStore {
     const response = yield ToDoListClient.toggleStatus(payload);
     const index = this.tasks.findIndex((task) => task.id === payload.id);
     this.tasks[index] = response;
+  };
+
+  removeTask = function* (id) {
+    const response = yield ToDoListClient.deleteTask(id);
+    const list = this.tasks.filter((task) => task.id !== id);
+    this.tasks = list;
   };
 }
 
