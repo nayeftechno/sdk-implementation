@@ -2,19 +2,19 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../styles/globals.css";
 import Layout from "../components/Layout";
 import Navbar from "../components/Navbar";
-import EmployeeStore from "../sdk/stores/EmployeeStore";
-import { EmployeeContextProvider } from "../contexts/EmployeeContext";
+import ToDoStore from "../sdk/stores/ToDoStore";
+import { DataContextProvider } from "../contexts/DataContext";
 
-const store = new EmployeeStore();
+const store = new ToDoStore();
 
 function MyApp({ Component, pageProps }) {
   return (
-    <EmployeeContextProvider store={store}>
+    <DataContextProvider store={store}>
       <Navbar />
       <Layout>
         <Component {...pageProps} />
       </Layout>
-    </EmployeeContextProvider>
+    </DataContextProvider>
   );
 }
 

@@ -1,6 +1,6 @@
 import { observable, action, computed, makeAutoObservable } from "mobx";
 
-class EmployeeStore {
+class ToDoStore {
   employees = [];
   loading = false;
   adding = false;
@@ -31,11 +31,11 @@ class EmployeeStore {
 
   fetch = async () => {
     this.loading = true;
-    const response = await fetch("http://localhost:4000/employees");
+    const response = await fetch("http://localhost:4000/tasks");
     const employees = await response.json();
     this.loading = false;
     this.employees = employees;
   };
 }
 
-export default EmployeeStore;
+export default ToDoStore;
