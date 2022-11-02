@@ -1,11 +1,18 @@
 import { useState, useRef } from "react";
+import { useMainStore } from "../../contexts/MainContext";
 
 function Form() {
+  const { toDoStore } = useMainStore();
+  const { addTask } = toDoStore;
+
   const [title, setTitle] = useState("");
   const titleRef = useRef(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    addTask({ title: title.trim(), isCompleted: false });
+    setTitle("");
+    titleRef.current.focus();
   };
 
   const handleChange = ({ target: { value } }) => {

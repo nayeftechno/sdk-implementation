@@ -1,4 +1,4 @@
-import { observable, computed, makeAutoObservable } from "mobx";
+import { observable, computed, makeAutoObservable, action } from "mobx";
 import { ToDoListClient } from "../clients/to-do-list.client";
 
 class ToDoStore {
@@ -13,6 +13,7 @@ class ToDoStore {
       getIsLoading: computed,
     });
     this.fetch = this.fetch.bind(this);
+    this.addTask = this.addTask.bind(this);
   }
 
   get getTasks() {
@@ -28,6 +29,11 @@ class ToDoStore {
     const response = yield ToDoListClient.getAllTasks();
     this.isLoading = false;
     this.tasks = response;
+  };
+
+  addTask = function* (payload) {
+    const response = yield ToDoListClient.addNewTask(payload);
+    this.tasks.push(response);
   };
 }
 
