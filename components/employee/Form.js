@@ -39,7 +39,7 @@ function Form() {
           type={"submit"}
           value={"Add To List"}
           className="btn btn-success"
-          disabled={!title?.length}
+          disabled={!title?.trim()?.length}
         />
       </div>
     </form>
