@@ -1,21 +1,18 @@
-import { observable, action, computed, makeAutoObservable } from "mobx";
+import { observable, computed, makeAutoObservable } from "mobx";
 import { ToDoListClient } from "../clients/to-do-list.client";
 
 class ToDoStore {
   tasks = [];
   isLoading = false;
-  adding = false;
 
   constructor() {
     makeAutoObservable(this, {
       tasks: observable,
       isLoading: observable,
-      adding: observable,
-      getEmployees: computed,
+      getTasks: computed,
       getIsLoading: computed,
-      getAdding: computed,
-      fetch: action,
     });
+    this.fetch = this.fetch.bind(this);
   }
 
   get getTasks() {
@@ -26,13 +23,9 @@ class ToDoStore {
     return this.isLoading;
   }
 
-  get getAdding() {
-    return this.adding;
-  }
-
-  fetch = async () => {
+  fetch = function* () {
     this.isLoading = true;
-    const response = await ToDoListClient.getAllTasks();
+    const response = yield ToDoListClient.getAllTasks();
     this.isLoading = false;
     this.tasks = response;
   };
