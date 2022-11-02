@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import RenderHead from "../../components/RenderHead";
+import List from "../../components/employee/List";
 import { useEmployeeStore } from "../../contexts/EmployeeContext";
 
 export default function EmployeesPage() {
@@ -16,6 +17,7 @@ export default function EmployeesPage() {
       <div className="row">
         <h4>Employees Page</h4>
         <div className="col-md-12">
+          <List />
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
             accusantium reprehenderit minus, eveniet perferendis, necessitatibus
