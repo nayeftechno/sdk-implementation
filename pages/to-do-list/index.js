@@ -1,7 +1,8 @@
 import { useEffect } from "react";
+import { useMainStore } from "../../contexts/MainContext";
 import RenderHead from "../../components/RenderHead";
 import List from "../../components/employee/List";
-import { useMainStore } from "../../contexts/MainContext";
+import Form from "../../components/employee/Form";
 
 export default function EmployeesPage() {
   const { toDoStore } = useMainStore();
@@ -18,7 +19,9 @@ export default function EmployeesPage() {
       <div className="row">
         <h4>To-Do-List Page</h4>
         <div className="col-md-4">First</div>
-        <div className="col-md-4">Second</div>
+        <div className="col-md-4">
+          <Form />
+        </div>
         <div className="col-md-4">
           <List />
         </div>
