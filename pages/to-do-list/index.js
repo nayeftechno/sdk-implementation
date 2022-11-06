@@ -3,6 +3,7 @@ import { useMainStore } from "../../contexts/MainContext";
 import RenderHead from "../../components/RenderHead";
 import List from "../../components/employee/List";
 import Form from "../../components/employee/Form";
+import Statics from "../../components/employee/Statics";
 
 export default function EmployeesPage() {
   const { toDoStore } = useMainStore();
@@ -18,7 +19,9 @@ export default function EmployeesPage() {
       <RenderHead pageTitle="To-Do-List" />
       <div className="row">
         <h4>To-Do-List Page</h4>
-        <div className="col-md-4">First</div>
+        <div className="col-md-4">
+          <Statics />
+        </div>
         <div className="col-md-4">
           <Form />
         </div>

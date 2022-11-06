@@ -11,6 +11,8 @@ class ToDoStore {
       isLoading: observable,
       getTasks: computed,
       getIsLoading: computed,
+      getCompletedCount: computed,
+      getInCompletedCount: computed,
     });
     this.fetch = this.fetch.bind(this);
     this.addTask = this.addTask.bind(this);
@@ -24,6 +26,14 @@ class ToDoStore {
 
   get getIsLoading() {
     return this.isLoading;
+  }
+
+  get getCompletedCount() {
+    return this.tasks.filter((task) => task?.isCompleted).length;
+  }
+
+  get getInCompletedCount() {
+    return this.tasks.filter((task) => !task?.isCompleted).length;
   }
 
   fetch = function* () {
