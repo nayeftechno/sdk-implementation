@@ -11,7 +11,8 @@ npm i
 ```
 
 To install NextJs & Mobx Dependencies.
-
+<br />
+<br />
 Then go to the directory `json-server`, and run the command:
 
 ```bash
