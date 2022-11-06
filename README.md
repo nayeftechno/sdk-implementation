@@ -7,19 +7,14 @@ A Simple demo that simulates how things communicate to each other in `SDK`.
 First, in the root run the command:
 
 ```bash
-npm i
+npm i // To install NextJs & Mobx Dependencies.
 ```
 
-To install NextJs & Mobx Dependencies.
-<br />
-<br />
 Then go to the directory `json-server`, and run the command:
 
 ```bash
-npm i
+npm i // To install Json-Server (local server for demo purposes).
 ```
-
-To install Json-Server (local server for demo purposes).
 
 ## Getting Started
 
