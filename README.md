@@ -2,9 +2,23 @@
 
 A Simple demo that simulates how things communicate to each other in `SDK`.
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Install Dependencies
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+First, in the root run the command:
+
+```bash
+npm i
+```
+
+To install NextJs & Mobx Dependencies.
+
+Then go to the directory `json-server`, and run the command:
+
+```bash
+npm i
+```
+
+To install Json-Server (local server for demo purposes).
 
 ## Getting Started
 
