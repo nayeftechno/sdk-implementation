@@ -18,13 +18,14 @@ npm i // To install Json-Server (local server for demo purposes).
 
 ## Getting Started
 
-First, run the development server:
+First, go to `json-server` directory and run the local server:
 
 ```bash
-npm run dev
-# or
-yarn dev
+npm run start
 ```
+
+this will run the sever on port `4000`.
+You can open [http://localhost:4000](http://localhost:4000) with your browser to see the `api's`.
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
