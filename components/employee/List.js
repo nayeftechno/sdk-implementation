@@ -1,9 +1,8 @@
-import { observer } from "mobx-react-lite";
-import { useMainStore } from "../../contexts/MainContext";
+import useToDoListState from "../../hooks/to-do-list/useToDoListState";
 
-function List() {
-  const { toDoStore } = useMainStore();
-  const { getIsLoading, getTasks, toggleStatus, removeTask } = toDoStore;
+function List({ store }) {
+  const { isLoading, tasks, toggleStatus, removeTask } =
+    useToDoListState(store);
 
   const handleChange = (id, title, isCompleted) => {
     toggleStatus({
@@ -15,12 +14,12 @@ function List() {
 
   return (
     <ul className="list-group">
-      {getIsLoading && getTasks.length === 0 ? (
+      {isLoading && tasks.length === 0 ? (
         <li className="list-group-item text-center">Loading...</li>
       ) : (
         <>
-          {getTasks.length > 0 ? (
-            getTasks.map(({ id, title, isCompleted }) => {
+          {tasks.length > 0 ? (
+            tasks.map(({ id, title, isCompleted }) => {
               return (
                 <li key={id} className="list-group-item">
                   <div className="display-flex">
@@ -59,4 +58,4 @@ function List() {
   );
 }
 
-export default observer(List);
+export default List;

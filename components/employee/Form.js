@@ -1,9 +1,8 @@
 import { useState, useRef } from "react";
-import { useMainStore } from "../../contexts/MainContext";
+import useToDoListState from "../../hooks/to-do-list/useToDoListState";
 
-function Form() {
-  const { toDoStore } = useMainStore();
-  const { addTask } = toDoStore;
+function Form({ store }) {
+  const { addTask } = useToDoListState(store);
 
   const [title, setTitle] = useState("");
   const titleRef = useRef(null);

@@ -6,8 +6,8 @@ function MainContextProvider({ store, children }) {
   return <MainContext.Provider value={store}>{children}</MainContext.Provider>;
 }
 
-function useMainStore() {
+function useStore() {
   return useContext(MainContext);
 }
 
-export { MainContextProvider, useMainStore };
+export { MainContextProvider, useStore };
