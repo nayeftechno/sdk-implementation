@@ -1,23 +1,21 @@
-import { observer } from "mobx-react-lite";
-import { useMainStore } from "../../contexts/MainContext";
+import useToDoListState from "../../hooks/to-do-list/useToDoListState";
 
-function Statics() {
-  const { toDoStore } = useMainStore();
-  const { getTasks, getCompletedCount, getInCompletedCount } = toDoStore;
+function Statics({ store }) {
+  const { tasks, completedCount, inCompletedCount } = useToDoListState(store);
   return (
     <ul className="list-group">
-      {getTasks?.length > 0 ? (
+      {tasks?.length > 0 ? (
         <>
           <li className="list-group-item">
-            Total : <strong className="statics-color">{getTasks.length}</strong>
+            Total : <strong className="statics-color">{tasks?.length}</strong>
           </li>
           <li className="list-group-item">
             Completed :{" "}
-            <strong className="statics-color">{getCompletedCount}</strong>
+            <strong className="statics-color">{completedCount}</strong>
           </li>
           <li className="list-group-item">
             Incompleted :{" "}
-            <strong className="statics-color">{getInCompletedCount}</strong>
+            <strong className="statics-color">{inCompletedCount}</strong>
           </li>
         </>
       ) : (
@@ -27,4 +25,4 @@ function Statics() {
   );
 }
 
-export default observer(Statics);
+export default Statics;

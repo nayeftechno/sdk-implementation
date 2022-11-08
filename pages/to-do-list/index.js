@@ -1,18 +1,14 @@
-import { useEffect } from "react";
-import { useMainStore } from "../../contexts/MainContext";
+import { useStore } from "../../contexts/MainContext";
+import { useToDoListFetch } from "../../hooks/to-do-list/useToDoListFetch";
 import RenderHead from "../../components/RenderHead";
 import List from "../../components/employee/List";
 import Form from "../../components/employee/Form";
 import Statics from "../../components/employee/Statics";
 
 export default function EmployeesPage() {
-  const { toDoStore } = useMainStore();
-  const { fetch } = toDoStore;
+  const store = useStore();
 
-  useEffect(() => {
-    fetch();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  useToDoListFetch(store);
 
   return (
     <>
@@ -20,13 +16,13 @@ export default function EmployeesPage() {
       <div className="row">
         <h4>To-Do-List Page</h4>
         <div className="col-md-4">
-          <Statics />
+          <Statics store={store} />
         </div>
         <div className="col-md-4">
-          <Form />
+          <Form store={store} />
         </div>
         <div className="col-md-4">
-          <List />
+          <List store={store} />
         </div>
       </div>
     </>
