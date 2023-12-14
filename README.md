@@ -24,6 +24,13 @@ First, go to `json-server` directory and run the local server:
 npm run start
 ```
 
+After run the above command, a new file automatically generated # db.json
+go to that file and add the bellow
+
+```bash
+"tasks": []
+```
+
 this will run the sever on port `4000`.
 You can open [http://localhost:4000](http://localhost:4000) with your browser to see the `api's`.
 
