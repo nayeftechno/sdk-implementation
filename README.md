@@ -24,7 +24,7 @@ First, go to `json-server` directory and run the local server:
 npm run start
 ```
 
-After run the above command, a new file automatically generated #db.json
+After run the above command, a new file automatically generated **db.json**
 go to that file and add the bellow
 
 ```bash
